@@ -1,0 +1,59 @@
+{
+  "name": "sails/api-client",
+  "description": "Library to connect and integrate Sails platform.",
+  "keywords": [
+    "library"
+  ],
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Caxvalencia",
+      "email": "caxvalencia@gmail.com"
+    }
+  ],
+  "archive": {
+    "exclude": [
+      ".git",
+      ".gitignore"
+    ]
+  },
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "guzzlehttp/guzzle": "^6.3",
+    "cache/filesystem-adapter": "^1.0",
+    "illuminate/encryption": "5.4.36"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "~5.7",
+    "symfony/var-dumper": "3.4.13",
+    "phpstan/phpstan": "~0.9",
+    "squizlabs/php_codesniffer": "~3.2"
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "Sails\\Api\\Client\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sails\\Api\\Client\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "phpcs": "phpcs --standard=PSR2 --ignore=tests/coverage src/ tests/",
+    "phpstan": "phpstan analyse -l 7 -v src/ tests/",
+    "phpunit": "phpunit --bootstrap vendor/autoload.php --testdox tests/",
+    "test": [
+      "@phpcs",
+      "@phpstan",
+      "@phpunit"
+    ]
+  }
+}
